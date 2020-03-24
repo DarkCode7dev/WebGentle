@@ -1,0 +1,32 @@
+@model TwentyTwo.Models.Employee
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("submitData", "Home", FormMethod.Post))
+        {
+            @Html.TextBoxFor(x => x.FirstName) <br />
+            @Html.ValidationMessageFor(x => x.FirstName, String.Empty, new {@style="color:green" })<br />
+
+            @Html.TextBoxFor(y => y.LastName)<br />
+            @Html.ValidationMessageFor(y => y.LastName, String.Empty, new {@style = "color:red" })<br/>
+          
+            @Html.TextBoxFor(x=>x.Email) <br />
+            @Html.ValidationMessageFor(x=>x.Email)    <br />
+            @Html.EditorFor(v=>v.Age) <br />
+            @Html.ValidationMessageFor(v=>v.Age)<br />
+            <br />
+            <input type="submit" value="Click me" />
+        }
+    </div>
+</body>
+</html>
